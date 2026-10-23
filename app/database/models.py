@@ -1,7 +1,6 @@
 import json
 import os
 
-# Файлы будут лежать в корне проекта (рядом с main.py)
 DB_FILE = "tasks.json"
 BUSY_FILE = "busy.json"
 

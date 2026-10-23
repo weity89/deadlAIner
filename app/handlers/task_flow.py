@@ -35,7 +35,7 @@ async def handle_task(message: types.Message, bot):
         "hours": hours,
         "deadline": ai_data.get("deadline", "Не указан"),  # <-- ДОБАВИЛИ ДАТУ
         "steps": steps,
-        "details": ""  # <-- Сюда будем сохранять описание задания
+        "details": ""
     })
     save_tasks(all_tasks)
     # =================================
@@ -52,7 +52,6 @@ async def handle_task(message: types.Message, bot):
 
     steps_formatted = "\n".join([f"  {i + 1}. {s}" for i, s in enumerate(steps)])
 
-    # Создаем кнопку "Готово"
     builder = InlineKeyboardBuilder()
     builder.button(text="✅ Задача выполнена", callback_data="task_done")
 
@@ -72,7 +71,6 @@ async def handle_task(message: types.Message, bot):
         args=[bot, message.from_user.id, task_name, reminder_text]
     )
 
-# Обработчик кнопки "Готово"
 async def handle_done(callback: types.CallbackQuery):
     user_id = callback.from_user.id
     task = user_active_tasks.get(user_id)

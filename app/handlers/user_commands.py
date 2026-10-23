@@ -85,7 +85,6 @@ async def cmd_list(message: types.Message):
 
 async def cmd_busy(message: types.Message):
     user_id = str(message.from_user.id)
-    # Убираем саму команду /busy из текста
     text = message.text.replace("/busy", "").strip()
 
     if not text:
